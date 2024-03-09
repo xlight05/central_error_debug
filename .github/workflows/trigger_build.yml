@@ -3,7 +3,7 @@ name: build
 on:
     schedule:
         - cron:  "*/1 * * * *"
-
+    workflow_dispatch:
 env:
     BALLERINA_VERSION: 2201.8.4    # Update this with the latest Ballerina version
     CENTRAL_VERBOSE_ENABLED: true
