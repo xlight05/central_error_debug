@@ -1,0 +1,23 @@
+name: build
+
+on:
+    schedule:
+        - cron:  "*/1 * * * *"
+
+env:
+    BALLERINA_VERSION: 2201.8.4    # Update this with the latest Ballerina version
+    CENTRAL_VERBOSE_ENABLED: true
+    BALLERINA_DEV_CENTRAL: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ballerina-platform/setup-ballerina@v1
+      name: Install Ballerina
+      with:
+        version: ${{ env.BALLERINA_VERSION }}
+    - name: build
+      run: bal build --dump-raw-graphs 
