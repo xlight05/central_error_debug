@@ -7,7 +7,7 @@ on:
 env:
     BALLERINA_VERSION: 2201.8.4    # Update this with the latest Ballerina version
     CENTRAL_VERBOSE_ENABLED: true
-    BALLERINA_DEV_CENTRAL: true
+    BALLERINA_STAGE_CENTRAL: true
 jobs:
   build:
     runs-on: ubuntu-latest
