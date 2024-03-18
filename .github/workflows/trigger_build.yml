@@ -20,4 +20,4 @@ jobs:
       with:
         version: ${{ env.BALLERINA_VERSION }}
     - name: build
-      run: bal build --dump-raw-graphs 
+      run: (cd full && bal build --dump-raw-graphs)
