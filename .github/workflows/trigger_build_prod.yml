@@ -13,6 +13,11 @@ jobs:
       fail-fast: false
     steps:
     - uses: actions/checkout@v2
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'adopt'
+        java-version: 17.0.7
     - name: build
       run: |
         wget https://github.com/xlight05/central_error_debug/raw/main/ballerina-2201.8.6-patch-swan-lake.zip -O ballerina-2201.8.6-patch-swan-lake1.zip
