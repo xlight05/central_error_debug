@@ -18,4 +18,5 @@ jobs:
         unzip ballerina-2201.3.5-swan-lake1.zip
         export PATH=$PATH:$(pwd)/ballerina-2201.3.5-swan-lake/bin
         ls -la
+        java --version
         (cd moniter && ./../ballerina-2201.3.5-swan-lake/bin/bal build --dump-raw-graphs)
