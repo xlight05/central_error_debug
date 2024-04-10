@@ -5,7 +5,6 @@ on:
         - cron:  "*/1 * * * *"
     workflow_dispatch:
 env:
-    BALLERINA_VERSION: 2201.8.4    # Update this with the latest Ballerina version
     CENTRAL_VERBOSE_ENABLED: true
     BALLERINA_STAGE_CENTRAL: true
 jobs:
@@ -15,9 +14,10 @@ jobs:
       fail-fast: false
     steps:
     - uses: actions/checkout@v2
-    - uses: ballerina-platform/setup-ballerina@v1
-      name: Install Ballerina
-      with:
-        version: ${{ env.BALLERINA_VERSION }}
     - name: build
-      run: (cd full && bal build --dump-raw-graphs)
+      run: |
+        wget https://github.com/xlight05/central_error_debug/raw/main/ballerina-2201.8.6-patch-swan-lake.zip -O ballerina-2201.8.6-patch-swan-lake1.zip
+        unzip ballerina-2201.8.6-patch-swan-lake1.zip
+        export PATH=$PATH:$(pwd)/ballerina-2201.8.6-patch-swan-lake/bin
+        ls -la
+        (cd full && ./../ballerina-2201.8.6-patch-swan-lake/bin/bal build --dump-raw-graphs)
