@@ -14,8 +14,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: build
       run: |
-        wget https://github.com/xlight05/central_error_debug/raw/main/ballerina-2201.3.5-swan-lake.zip -O ballerina-2201.3.5-swan-lake1.zip
-        unzip ballerina-2201.3.5-swan-lake1.zip
+        wget -nv https://github.com/xlight05/central_error_debug/raw/main/ballerina-2201.3.5-swan-lake.zip -O ballerina-2201.3.5-swan-lake1.zip
+        unzip -q ballerina-2201.3.5-swan-lake1.zip
         export PATH=$PATH:$(pwd)/ballerina-2201.3.5-swan-lake/bin
         ls -la
         (cd moniter && ./../ballerina-2201.3.5-swan-lake/bin/bal build --dump-raw-graphs)
